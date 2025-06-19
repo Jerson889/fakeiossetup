@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Apple ID</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     * { box-sizing: border-box; }
 
@@ -32,8 +33,8 @@
     }
 
     .logo {
-      width: 150px;
-      height: 150px;
+      width: 60px;
+      height: 60px;
       margin: 0 auto 24px;
       display: block;
     }
@@ -101,7 +102,11 @@
       text-decoration: none;
     }
 
-    /* iOS-style Alert Box */
+    /* Modal Alert Styles */
+    #ios-alert {
+      display: none;
+    }
+
     #ios-alert .alert-overlay {
       position: fixed;
       top: 0; left: 0;
@@ -110,7 +115,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 99;
+      z-index: 999;
     }
 
     #ios-alert .alert-box {
@@ -120,6 +125,8 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       text-align: center;
       padding: 24px 16px;
+      transform: scale(0.95);
+      animation: pop-in 0.25s ease forwards;
     }
 
     .alert-title {
@@ -141,6 +148,11 @@
       border: none;
       cursor: pointer;
     }
+
+    @keyframes pop-in {
+      from { transform: scale(0.95); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -161,7 +173,8 @@
     <a href="#" class="footer-link">Other Sign-In Options</a>
   </div>
 
-  <div id="ios-alert" style="display: none;">
+  <!-- iOS-style Modal -->
+  <div id="ios-alert">
     <div class="alert-overlay">
       <div class="alert-box">
         <div class="alert-title">Invalid email</div>
@@ -171,6 +184,9 @@
     </div>
   </div>
 
+  <!-- Sound -->
+  <audio id="alertSound" src="https://assets.mixkit.co/sfx/preview/mixkit-click-error-1110.mp3" preload="auto"></audio>
+
   <script>
     function validateLogin() {
       const email = document.getElementById('email').value.trim();
@@ -178,6 +194,7 @@
 
       if (!email.endsWith('@icloud.com')) {
         document.getElementById('ios-alert').style.display = 'block';
+        document.getElementById('alertSound').play();
         return;
       }
 
