@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Apple ID</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 64px 24px 32px;
+      position: relative;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 16px;
+      font-size: 17px;
+      color: #007aff;
+      text-decoration: none;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    input {
+      width: 100%;
+      font-size: 17px;
+      padding: 14px 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .button {
+      width: 100%;
+      font-size: 17px;
+      padding: 14px;
+      background-color: #007aff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      cursor: pointer;
+    }
+
+    .button:active {
+      background-color: #005bb5;
+    }
+
+    .link {
+      display: block;
+      font-size: 15px;
+      color: #007aff;
+      text-align: center;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+
+    .footer {
+      font-size: 13px;
+      text-align: center;
+      color: #555;
+      margin-top: 32px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="createacc.html" class="back-link">Back</a>
+    <h1>Account</h1>
+    <input type="text" placeholder="Apple ID" />
+    <input type="password" placeholder="Password" />
+    <button class="button" onclick="window.location.href='done.html'">Sign In</button>
+    <a href="forgot.html" class="link">Forgot your Apple ID or password?</a>
+    <a href="createid.html" class="link">Create New Apple ID</a>
+    <div class="footer">
+      An Apple ID is the login you use for just about everything you do with Apple.
+    </div>
+  </div>
+</body>
+</html>
