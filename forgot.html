@@ -56,10 +56,23 @@
       border-radius: 8px;
     }
 
+    .strength-bar {
+      height: 6px;
+      border-radius: 3px;
+      background-color: #e0e0e0;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .strength-fill {
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
     .note {
       font-size: 13px;
       color: #555;
-      margin-top: 12px;
       line-height: 1.4;
     }
   </style>
@@ -72,11 +85,30 @@
   </div>
 
   <div class="container">
-    <input type="password" placeholder="New" />
+    <input type="password" id="new" placeholder="New" oninput="updateStrength(this.value)" />
+    <div class="strength-bar">
+      <div id="strengthFill" class="strength-fill" style="background-color: #ccc;"></div>
+    </div>
     <input type="password" placeholder="Verify" />
     <div class="note">
       Your password must be at least 8 characters, include a number, an uppercase letter, and a lowercase letter.
     </div>
   </div>
+
+  <script>
+    function updateStrength(value) {
+      const fill = document.getElementById('strengthFill');
+      let strength = 0;
+      if (value.length >= 8) strength += 1;
+      if (/[0-9]/.test(value)) strength += 1;
+      if (/[A-Z]/.test(value)) strength += 1;
+      if (/[a-z]/.test(value)) strength += 1;
+
+      const width = ['0%', '33%', '66%', '100%'][strength];
+      const color = ['#ccc', '#ff9f0a', '#ffcc00', '#34c759'][strength];
+      fill.style.width = width;
+      fill.style.backgroundColor = color;
+    }
+  </script>
 </body>
 </html>
