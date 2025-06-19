@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apple ID</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f2f2f7;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+    }
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #007aff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h2>Sign in with your Apple ID</h2>
+  <form onsubmit="event.preventDefault(); alert('Setup Complete! Welcome to iOS.');">
+    <input type="email" placeholder="Apple ID" required />
+    <input type="password" placeholder="Password" required />
+    <button type="submit">Continue</button>
+  </form>
+</body>
+</html>
