@@ -10,6 +10,11 @@
       font-family: -apple-system, sans-serif;
       background: #f2f2f7;
       padding: 20px;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
     }
     h2 {
       text-align: center;
@@ -45,6 +50,14 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+    });
+    function selectWiFi(elem) {
+      alert("Connecting to: " + elem.textContent + "...");
+    }
+  </script>
 </head>
 <body>
   <h2>Select a Wi-Fi Network</h2>
@@ -56,11 +69,5 @@
   <div class="next">
     <button onclick="location.href='appleid.html'">Next</button>
   </div>
-
-  <script>
-    function selectWiFi(elem) {
-      alert("Connecting to: " + elem.textContent + "...");
-    }
-  </script>
 </body>
 </html>
