@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Terms of Service</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #fff;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 16px;
+      font-size: 17px;
+      color: #007aff;
+      text-decoration: none;
+    }
+
+    header {
+      padding: 64px 24px 16px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0 0 16px;
+    }
+
+    .terms-content {
+      flex: 1;
+      padding: 0 24px;
+      overflow-y: auto;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .terms-content p {
+      margin-bottom: 16px;
+    }
+
+    .footer {
+      padding: 16px 24px 24px;
+      border-top: 1px solid #eee;
+    }
+
+    .button {
+      width: 100%;
+      font-size: 17px;
+      padding: 14px;
+      background-color: #007aff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .button:active {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back-link" href="appleid.html">Back</a>
+    <h1>Terms and Conditions</h1>
+  </header>
+
+  <div class="terms-content">
+    <p>Welcome to your new iPhone. By using this device, you agree to the Apple Media Services Terms and Conditions and the iOS Software License Agreement.</p>
+    <p>Your use of services and features like iCloud, App Store, and Find My iPhone is governed by these terms. Your Apple ID will be used to activate and personalize your experience.</p>
+    <p>This device may send certain data to Apple to improve its performance and deliver services to you, in accordance with Apple's Privacy Policy.</p>
+    <p>Please read carefully and tap "Agree" to continue.</p>
+  </div>
+
+  <div class="footer">
+    <button class="button" onclick="window.location.href='done.html'">Agree</button>
+  </div>
+</body>
+</html>
