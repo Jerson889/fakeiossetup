@@ -3,43 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <title>Hello</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
       margin: 0;
-      background: black;
+      padding: 0;
+      height: 100%;
+      font-family: -apple-system, sans-serif;
+      overflow: hidden;
+    }
+
+    .background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://jerson889.github.io/fakeiossetup/wallpaper.png') no-repeat center center;
+      background-size: cover;
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+    .content {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      flex-direction: column;
+      height: 100%;
+      color: white;
+      text-align: center;
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
     }
-    body.loaded {
+
+    .content.loaded {
       opacity: 1;
     }
-    img {
+
+    .hello-img {
       max-width: 80%;
       height: auto;
     }
+
     .swipe {
       position: absolute;
       bottom: 40px;
       font-size: 1.2em;
       color: white;
       opacity: 0.6;
-      font-family: -apple-system, sans-serif;
     }
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      document.body.classList.add('loaded');
+      document.querySelector('.content').classList.add('loaded');
     });
   </script>
 </head>
 <body onclick="location.href='region.html'">
-  <img src="https://jerson889.github.io/fakeiossetup/image-removebg-preview.png" alt="Hello image" />
-  <div class="swipe">Swipe up to open</div>
+  <div class="background"></div>
+  <div class="content">
+    <img src="https://jerson889.github.io/fakeiossetup/image-removebg-preview.png" alt="Hello image" class="hello-img" />
+    <div class="swipe">Swipe up to open</div>
+  </div>
 </body>
 </html>
