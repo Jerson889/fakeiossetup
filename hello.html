@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Lottie animation script -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
   <style>
     * {
       box-sizing: border-box;
@@ -43,7 +47,7 @@
       opacity: 1;
     }
 
-    .hello-video {
+    lottie-player {
       width: 80vw;
       max-width: 600px;
       height: auto;
@@ -55,21 +59,49 @@
       font-size: 1.2em;
       color: white;
       opacity: 0.6;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
   </style>
+
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.content').classList.add('loaded');
     });
+
+    let startY = null;
+
+    window.addEventListener('touchstart', e => {
+      startY = e.touches[0].clientY;
+    });
+
+    window.addEventListener('touchend', e => {
+      if (startY === null) return;
+      const endY = e.changedTouches[0].clientY;
+      const deltaY = startY - endY;
+      if (deltaY > 50) {
+        // Swipe up detected
+        window.location.href = 'region.html';
+      }
+      startY = null;
+    });
   </script>
 </head>
-<body onclick="location.href='region.html'">
+<body>
   <div class="background"></div>
   <div class="content">
-    <video class="hello-video" autoplay muted playsinline loop>
-      <source src="https://jerson889.github.io/fakeiossetup/hello.mov" type="video/quicktime" />
-      Your browser does not support the video tag.
-    </video>
+    <lottie-player
+      src="https://lottie.host/65cf1b21-e8a7-4c55-91a1-50e4e98a6377/2Z0z7v9Zz1.json"
+      background="transparent"
+      speed="1"
+      loop
+      autoplay
+      mode="normal"
+    ></lottie-player>
     <div class="swipe">Swipe up to open</div>
   </div>
 </body>
