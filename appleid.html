@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Apple ID</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <style>
     * {
       box-sizing: border-box;
@@ -35,8 +34,8 @@
     }
 
     .logo {
-      width: 150px;
-      height: 150px;
+      width: 60px;
+      height: 60px;
       margin: 0 auto 24px;
       display: block;
     }
@@ -55,7 +54,7 @@
       line-height: 1.4;
     }
 
-    input[type="text"] {
+    input {
       width: 100%;
       font-size: 17px;
       padding: 14px 12px;
@@ -107,19 +106,39 @@
 </head>
 <body>
   <div class="container">
-    <a href="terms.html" class="skip-link">Skip</a>
+    <a href="done.html" class="skip-link">Skip</a>
     <img src="https://jerson889.github.io/fakeiossetup/appleid.png" alt="Apple ID logo" class="logo" />
     <h1>Apple ID</h1>
     <p class="description">
       Sign in with an email or phone number to use iCloud, the App Store, and other Apple services.
     </p>
-    <input type="text" placeholder="Email or Phone Number" />
+    <input type="text" id="email" placeholder="Email or Phone Number" />
+    <input type="password" id="password" placeholder="Password" />
     <a href="createacc.html" class="link">Forgot password or don’t have an account?</a>
     <p class="info">
       Your Apple ID and all Apple services use iCloud. Your device serial number and other details may be used to verify your identity.
     </p>
-    <button class="button" onclick="window.location.href='terms.html'">Continue</button>
+    <button class="button" onclick="validateLogin()">Continue</button>
     <a href="#" class="footer-link">Other Sign-In Options</a>
   </div>
+
+  <script>
+    function validateLogin() {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (!email.endsWith('@icloud.com')) {
+        alert('Only @icloud.com addresses are supported.');
+        return;
+      }
+
+      if (!email || !password) {
+        alert('Please enter both your Apple ID and password.');
+        return;
+      }
+
+      window.location.href = 'terms.html';
+    }
+  </script>
 </body>
 </html>
