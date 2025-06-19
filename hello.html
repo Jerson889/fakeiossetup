@@ -8,8 +8,6 @@
     body {
       margin: 0;
       background: black;
-      color: white;
-      font-family: -apple-system, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,19 +19,17 @@
     body.loaded {
       opacity: 1;
     }
-    h1 {
-      font-size: 3em;
-      animation: fadeIn 2s ease-out;
+    img {
+      max-width: 80%;
+      height: auto;
     }
     .swipe {
       position: absolute;
       bottom: 40px;
       font-size: 1.2em;
+      color: white;
       opacity: 0.6;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      font-family: -apple-system, sans-serif;
     }
   </style>
   <script>
@@ -43,7 +39,7 @@
   </script>
 </head>
 <body onclick="location.href='region.html'">
-  <h1>Hello</h1>
+  <img src="image-removebg-preview.png" alt="Hello image" />
   <div class="swipe">Swipe up to open</div>
 </body>
 </html>
