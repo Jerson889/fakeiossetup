@@ -14,30 +14,21 @@
       margin: 0;
       padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: url('https://jerson889.github.io/fakeiossetup/wallpaper.png') no-repeat center center fixed;
-      background-size: cover;
-      background-color: #000;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(20px);
-      z-index: 0;
+      background-color: #fff;
+      color: #000;
     }
 
     .container {
-      position: relative;
-      z-index: 1;
       max-width: 600px;
       margin: 0 auto;
       padding: 64px 24px 32px;
-      color: #000;
-      background-color: rgba(255, 255, 255, 0.85);
-      height: 100vh;
-      overflow-y: auto;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 24px;
+      display: block;
     }
 
     h1 {
@@ -91,8 +82,8 @@
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
   <div class="container">
+    <img src="https://jerson889.github.io/fakeiossetup/wifi.png" alt="Wi-Fi icon" class="logo" />
     <h1>Choose a Wi‑Fi Network</h1>
     <ul>
       <li>
