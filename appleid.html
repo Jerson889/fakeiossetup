@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: -apple-system, sans-serif;
       background: #f2f2f7;
       padding: 20px;
     }
@@ -18,21 +18,23 @@
       max-width: 300px;
       margin: 0 auto;
     }
-    input {
+    input, button {
       width: 100%;
       padding: 12px;
       margin: 10px 0;
-      border: 1px solid #ccc;
       border-radius: 8px;
+      border: 1px solid #ccc;
+      animation: popIn 0.5s ease-out;
     }
     button {
-      width: 100%;
-      padding: 12px;
       background: #007aff;
       color: white;
       border: none;
-      border-radius: 8px;
       font-size: 1em;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
