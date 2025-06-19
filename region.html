@@ -2,64 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Select Region</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Your Region</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     body {
       margin: 0;
-      font-family: -apple-system, sans-serif;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       background: #fff;
       color: #000;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
     }
-    body.loaded {
-      opacity: 1;
+
+    .container {
+      padding: 48px 24px 0;
+      max-width: 600px;
+      margin: 0 auto;
     }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 24px;
+    }
+
+    .icon img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     h1 {
       text-align: center;
-      font-size: 22px;
-      margin: 20px 0;
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0 0 32px;
     }
+
     ul {
       list-style: none;
       padding: 0;
-      margin: 0 auto;
-      max-width: 400px;
+      margin: 0;
       border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
     }
+
     li {
-      padding: 15px 20px;
-      border-bottom: 1px solid #e0e0e0;
+      padding: 16px 12px;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 17px;
       cursor: pointer;
-      transition: background 0.2s;
     }
+
     li:hover {
-      background: #f5f5f5;
+      background-color: #f2f2f2;
+    }
+
+    .arrow {
+      font-size: 14px;
+      color: #999;
     }
   </style>
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      document.body.classList.add('loaded');
-    });
-
-    function goToLanguage() {
-      document.body.classList.remove('loaded');
-      setTimeout(() => {
-        location.href = 'language.html';
-      }, 300);
-    }
-  </script>
 </head>
 <body>
-  <h1>Select Your Country or Region</h1>
-  <ul>
-    <li onclick="goToLanguage()">Poland</li>
-    <li onclick="goToLanguage()">United States</li>
-    <li onclick="goToLanguage()">Germany</li>
-    <li onclick="goToLanguage()">Japan</li>
-    <li onclick="goToLanguage()">India</li>
-  </ul>
+  <div class="container">
+    <div class="icon">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Globe_icon.svg/512px-Globe_icon.svg.png" alt="Globe icon" />
+    </div>
+    <h1>Select Your Country or Region</h1>
+    <ul>
+      <li>United States <span class="arrow">›</span></li>
+      <li>Poland <span class="arrow">›</span></li>
+      <li>Germany <span class="arrow">›</span></li>
+      <li>France <span class="arrow">›</span></li>
+      <li>Italy <span class="arrow">›</span></li>
+      <li>Spain <span class="arrow">›</span></li>
+      <li>Netherlands <span class="arrow">›</span></li>
+      <li>United Kingdom <span class="arrow">›</span></li>
+      <li>Canada <span class="arrow">›</span></li>
+      <li>Japan <span class="arrow">›</span></li>
+    </ul>
+  </div>
 </body>
 </html>
