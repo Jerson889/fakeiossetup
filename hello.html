@@ -18,7 +18,8 @@
       background: black;
     }
 
-    .background {
+    body::before {
+      content: "";
       position: fixed;
       top: 0; left: 0;
       width: 100%;
@@ -88,7 +89,6 @@
   </script>
 </head>
 <body>
-  <div class="background"></div>
   <div class="content">
     <img src="https://jerson889.github.io/fakeiossetup/hello.gif" alt="Hello animation" class="hello-img" />
     <div class="swipe">Swipe up to open</div>
