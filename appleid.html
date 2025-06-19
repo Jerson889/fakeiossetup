@@ -3,57 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <title>Apple ID</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, sans-serif;
-      background: #f2f2f7;
-      padding: 20px;
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #fff;
+      color: #000;
     }
-    body.loaded {
-      opacity: 1;
-    }
-    h2 {
-      text-align: center;
-    }
-    form {
-      max-width: 300px;
+
+    .container {
+      max-width: 400px;
       margin: 0 auto;
+      padding: 64px 24px 32px;
+      position: relative;
     }
-    input, button {
+
+    .skip-link {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 17px;
+      color: #007aff;
+      text-decoration: none;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 24px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    p.description {
+      font-size: 17px;
+      text-align: center;
+      margin-bottom: 32px;
+      line-height: 1.4;
+    }
+
+    input[type="text"] {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
+      font-size: 17px;
+      padding: 14px 12px;
+      margin-bottom: 16px;
       border: 1px solid #ccc;
-      animation: popIn 0.5s ease-out;
+      border-radius: 8px;
     }
-    button {
-      background: #007aff;
-      color: white;
+
+    .link {
+      font-size: 15px;
+      color: #007aff;
+      text-align: center;
+      display: block;
+      margin-bottom: 32px;
+      text-decoration: none;
+    }
+
+    .info {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.4;
+      margin-bottom: 32px;
+    }
+
+    .button {
+      width: 100%;
+      font-size: 17px;
+      padding: 14px;
+      background-color: #007aff;
+      color: #fff;
       border: none;
-      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
     }
-    @keyframes popIn {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+
+    .button:active {
+      background-color: #005bb5;
+    }
+
+    .footer-link {
+      font-size: 15px;
+      color: #007aff;
+      text-align: center;
+      display: block;
+      margin-top: 24px;
+      text-decoration: none;
     }
   </style>
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      document.body.classList.add('loaded');
-    });
-  </script>
 </head>
 <body>
-  <h2>Sign in with your Apple ID</h2>
-  <form onsubmit="event.preventDefault(); alert('Setup Complete! Welcome to iOS.');">
-    <input type="email" placeholder="Apple ID" required />
-    <input type="password" placeholder="Password" required />
-    <button type="submit">Continue</button>
-  </form>
+  <div class="container">
+    <a href="done.html" class="skip-link">Skip</a>
+    <img src="https://jerson889.github.io/fakeiossetup/appleid.png" alt="Apple ID logo" class="logo" />
+    <h1>Apple ID</h1>
+    <p class="description">
+      Sign in with an email or phone number to use iCloud, the App Store, and other Apple services.
+    </p>
+    <input type="text" placeholder="Email or Phone Number" />
+    <a href="#" class="link">Forgot password or don’t have an account?</a>
+    <p class="info">
+      Your Apple ID and all Apple services use iCloud. Your device serial number and other details may be used to verify your identity.
+    </p>
+    <button class="button" onclick="window.location.href='terms.html'">Continue</button>
+    <a href="#" class="footer-link">Other Sign-In Options</a>
+  </div>
 </body>
 </html>
