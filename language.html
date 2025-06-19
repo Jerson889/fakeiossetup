@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Select Language</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, sans-serif;
+      background: #fff;
+      color: #000;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
+    }
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin: 20px 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 400px;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    li {
+      padding: 15px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    li:hover {
+      background: #f5f5f5;
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+    });
+
+    function goToNext() {
+      document.body.classList.remove('loaded');
+      setTimeout(() => {
+        location.href = 'wifi.html';
+      }, 300);
+    }
+  </script>
+</head>
+<body>
+  <h1>Select Your Language</h1>
+  <ul>
+    <li onclick="goToNext()">English</li>
+    <li onclick="goToNext()">Polski</li>
+    <li onclick="goToNext()">Deutsch</li>
+    <li onclick="goToNext()">日本語</li>
+    <li onclick="goToNext()">Français</li>
+    <li onclick="goToNext()">Español</li>
+    <li onclick="goToNext()">中文（简体）</li>
+    <li onclick="goToNext()">한국어</li>
+    <li onclick="goToNext()">Italiano</li>
+    <li onclick="goToNext()">Português</li>
+  </ul>
+</body>
+</html>
