@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wi-Fi Setup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f2f2f7;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: white;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      cursor: pointer;
+      font-size: 1.1em;
+    }
+    .next {
+      margin-top: 30px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background: #007aff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h2>Select a Wi-Fi Network</h2>
+  <ul>
+    <li onclick="selectWiFi(this)">Home Wi-Fi</li>
+    <li onclick="selectWiFi(this)">Jeremi’s iPhone</li>
+    <li onclick="selectWiFi(this)">CoffeeShop_Guest</li>
+  </ul>
+  <div class="next">
+    <button onclick="location.href='appleid.html'">Next</button>
+  </div>
+
+  <script>
+    function selectWiFi(elem) {
+      alert("Connecting to: " + elem.textContent + "...");
+    }
+  </script>
+</body>
+</html>
