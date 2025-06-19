@@ -8,7 +8,7 @@
     * {
       box-sizing: border-box;
     }
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -43,7 +43,7 @@
       opacity: 1;
     }
 
-    .hello-img {
+    .hello-video {
       width: 80vw;
       max-width: 600px;
       height: auto;
@@ -66,7 +66,10 @@
 <body onclick="location.href='region.html'">
   <div class="background"></div>
   <div class="content">
-    <img src="https://jerson889.github.io/fakeiossetup/hello.gif" alt="Hello image" class="hello-img" />
+    <video class="hello-video" autoplay muted playsinline loop>
+      <source src="https://jerson889.github.io/fakeiossetup/hello.mov" type="video/quicktime" />
+      Your browser does not support the video tag.
+    </video>
     <div class="swipe">Swipe up to open</div>
   </div>
 </body>
