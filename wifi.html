@@ -2,120 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Wi-Fi Setup</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wi‑Fi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, sans-serif;
-      background: #f2f2f7;
-      padding: 20px;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: url('https://jerson889.github.io/fakeiossetup/wallpaper.png') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #000;
     }
-    h2 {
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(20px);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 64px 24px 32px;
+      color: #000;
+      background-color: rgba(255, 255, 255, 0.85);
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 32px;
       text-align: center;
     }
+
     ul {
       list-style: none;
       padding: 0;
-      margin: 0 auto;
-      max-width: 400px;
+      margin: 0;
     }
+
     li {
-      background: white;
-      margin: 10px 0;
-      padding: 15px 20px;
-      border-radius: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      font-size: 1.1em;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      position: relative;
+      border-top: 1px solid #ccc;
     }
+
+    li:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .wifi-btn {
+      all: unset;
+      width: 100%;
+      font-size: 17px;
+      padding: 16px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .wifi-btn:hover {
+      background-color: #f2f2f2;
+    }
+
     .spinner {
       width: 16px;
       height: 16px;
       border: 2px solid #ccc;
-      border-top: 2px solid #007aff;
+      border-top: 2px solid #333;
       border-radius: 50%;
       animation: spin 1s linear infinite;
-      margin-right: 10px;
     }
+
     @keyframes spin {
       to { transform: rotate(360deg); }
-    }
-    .password-box {
-      margin-top: 10px;
-      display: none;
-    }
-    .password-box input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-    }
-    .password-box button {
-      width: 100%;
-      padding: 10px;
-      background: #007aff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1em;
     }
   </style>
 </head>
 <body>
-  <h2>Select a Wi-Fi Network</h2>
-  <ul id="wifi-list">
-    <li onclick="showPassword(this, 'Home Wi-Fi')">
-      <span><span class="spinner" style="display:none;"></span> Home Wi-Fi</span>
-      <div class="password-box">
-        <input type="password" placeholder="Enter Wi-Fi password" />
-        <button onclick="connect(this)">Join</button>
-      </div>
-    </li>
-    <li onclick="showPassword(this, 'Jeremi’s iPhone')">
-      <span><span class="spinner" style="display:none;"></span> Jeremi’s iPhone</span>
-      <div class="password-box">
-        <input type="password" placeholder="Enter Wi-Fi password" />
-        <button onclick="connect(this)">Join</button>
-      </div>
-    </li>
-    <li onclick="showPassword(this, 'CoffeeShop_Guest')">
-      <span><span class="spinner" style="display:none;"></span> CoffeeShop_Guest</span>
-      <div class="password-box">
-        <input type="password" placeholder="Enter Wi-Fi password" />
-        <button onclick="connect(this)">Join</button>
-      </div>
-    </li>
-  </ul>
-
-  <script>
-    function showPassword(item, name) {
-      // Hide all other password boxes
-      document.querySelectorAll('.password-box').forEach(box => box.style.display = 'none');
-      document.querySelectorAll('.spinner').forEach(spin => spin.style.display = 'none');
-
-      // Show password box for selected item
-      const box = item.querySelector('.password-box');
-      box.style.display = 'block';
-    }
-
-    function connect(button) {
-      const box = button.closest('.password-box');
-      const spinner = button.closest('li').querySelector('.spinner');
-
-      box.style.display = 'none';
-      spinner.style.display = 'inline-block';
-
-      setTimeout(() => {
-        spinner.style.display = 'none';
-        location.href = 'appleid.html';
-      }, 2000);
-    }
-  </script>
+  <div class="overlay"></div>
+  <div class="container">
+    <h1>Choose a Wi‑Fi Network</h1>
+    <ul>
+      <li>
+        <button class="wifi-btn" onclick="window.location.href='appleid.html'">
+          WiFi-Network <div class="spinner"></div>
+        </button>
+      </li>
+      <li><button class="wifi-btn" onclick="window.location.href='appleid.html'">bemi2 <span>›</span></button></li>
+      <li><button class="wifi-btn" onclick="window.location.href='appleid.html'">HomeNetwork <span>›</span></button></li>
+      <li><button class="wifi-btn" onclick="window.location.href='appleid.html'">iPhoneWiFi <span>›</span></button></li>
+      <li><button class="wifi-btn" onclick="window.location.href='appleid.html'">Starlink <span>›</span></button></li>
+      <li><button class="wifi-btn" onclick="window.location.href='appleid.html'">Network 5G <span>›</span></button></li>
+      <li><button class="wifi-btn" onclick="window.location.href='appleid.html'">Other… <span>›</span></button></li>
+    </ul>
+  </div>
 </body>
 </html>
