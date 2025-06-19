@@ -10,11 +10,6 @@
       font-family: -apple-system, sans-serif;
       background: #f2f2f7;
       padding: 20px;
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
-    }
-    body.loaded {
-      opacity: 1;
     }
     h2 {
       text-align: center;
@@ -22,52 +17,105 @@
     ul {
       list-style: none;
       padding: 0;
+      margin: 0 auto;
+      max-width: 400px;
     }
     li {
       background: white;
       margin: 10px 0;
-      padding: 15px;
+      padding: 15px 20px;
       border-radius: 10px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      cursor: pointer;
       font-size: 1.1em;
-      animation: fadeList 0.4s ease-out;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
     }
-    .next {
-      margin-top: 30px;
-      text-align: center;
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #ccc;
+      border-top: 2px solid #007aff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
     }
-    button {
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .password-box {
+      margin-top: 10px;
+      display: none;
+    }
+    .password-box input {
+      width: 100%;
+      padding: 10px;
       border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    .password-box button {
+      width: 100%;
+      padding: 10px;
       background: #007aff;
       color: white;
-    }
-    @keyframes fadeList {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
     }
   </style>
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      document.body.classList.add('loaded');
-    });
-    function selectWiFi(elem) {
-      alert("Connecting to: " + elem.textContent + "...");
-    }
-  </script>
 </head>
 <body>
   <h2>Select a Wi-Fi Network</h2>
-  <ul>
-    <li onclick="selectWiFi(this)">Home Wi-Fi</li>
-    <li onclick="selectWiFi(this)">Jeremi’s iPhone</li>
-    <li onclick="selectWiFi(this)">CoffeeShop_Guest</li>
+  <ul id="wifi-list">
+    <li onclick="showPassword(this, 'Home Wi-Fi')">
+      <span><span class="spinner" style="display:none;"></span> Home Wi-Fi</span>
+      <div class="password-box">
+        <input type="password" placeholder="Enter Wi-Fi password" />
+        <button onclick="connect(this)">Join</button>
+      </div>
+    </li>
+    <li onclick="showPassword(this, 'Jeremi’s iPhone')">
+      <span><span class="spinner" style="display:none;"></span> Jeremi’s iPhone</span>
+      <div class="password-box">
+        <input type="password" placeholder="Enter Wi-Fi password" />
+        <button onclick="connect(this)">Join</button>
+      </div>
+    </li>
+    <li onclick="showPassword(this, 'CoffeeShop_Guest')">
+      <span><span class="spinner" style="display:none;"></span> CoffeeShop_Guest</span>
+      <div class="password-box">
+        <input type="password" placeholder="Enter Wi-Fi password" />
+        <button onclick="connect(this)">Join</button>
+      </div>
+    </li>
   </ul>
-  <div class="next">
-    <button onclick="location.href='appleid.html'">Next</button>
-  </div>
+
+  <script>
+    function showPassword(item, name) {
+      // Hide all other password boxes
+      document.querySelectorAll('.password-box').forEach(box => box.style.display = 'none');
+      document.querySelectorAll('.spinner').forEach(spin => spin.style.display = 'none');
+
+      // Show password box for selected item
+      const box = item.querySelector('.password-box');
+      box.style.display = 'block';
+    }
+
+    function connect(button) {
+      const box = button.closest('.password-box');
+      const spinner = button.closest('li').querySelector('.spinner');
+
+      box.style.display = 'none';
+      spinner.style.display = 'inline-block';
+
+      setTimeout(() => {
+        spinner.style.display = 'none';
+        location.href = 'appleid.html';
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
